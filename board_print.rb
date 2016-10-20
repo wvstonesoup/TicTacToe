@@ -1,25 +1,14 @@
-def empty_ttt_board
+require_relative "TTT_functions.rb"
 
-	puts "Welcome to tic tac toe! This board accepts either 'x' or 'o' in the position you choose (1 through 9)" 
-	puts "when it is your turn. I will let you start."
-
-	board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-	puts " #{board[0]} | #{board[1]} | #{board[2]} "
-	puts "-----------"
-	puts " #{board[3]} | #{board[4]} | #{board[5]} "
-	puts "-----------"
-	puts " #{board[6]} | #{board[7]} | #{board[8]} "
-end
-empty_ttt_board
-
-def player1
-
-	puts "Please pick a character of X or O."
-	player1 = gets.chomp
-end
-
-	puts "Are you ready to place your first entry? Please pick a position for your first #{player1}."
+#display empty board with instructions. ask player to pick a character. redefine player as character. ask player to pick position. display board with new input. ask player 2 to pick position. redisplay board with new input. repeat till board full or 3 in a row. declare winner. need to figure out winning combinations. 
 
 
 
+puts "Welcome to tic tac toe!"
+puts"This board accepts either 'X' or 'O' in the position you choose (1 through 9) when it is your turn." 
+
+puts empty_ttt_board(board)
+
+puts "Player one, you will be 'X' and you may now choose your first positon. Please type a number between 1 and 9."
+player1_position = gets.chomp
+puts player1_position

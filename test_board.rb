@@ -1,5 +1,8 @@
-def user_character
-	if user_character == "x"
-	else user_character == "o"
-	end
+require "minitest/autorun"
+require_relative "TTT_functions.rb"
+require_relative "board_print.rb"
+
+class TestTTTGame < Minitest::Test 
+
+	
 end

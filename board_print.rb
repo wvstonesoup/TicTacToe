@@ -16,10 +16,19 @@ board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 #end
 
 #puts empty_ttt_board(board)
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+board = ["", "", "", "", "", "", "", "", ""]
 puts "Player one, you will be 'X' and you may now choose your first positon. Please type a number between 1 and 9."
 player1_position = gets.chomp
-board[(gets.to_i)-1] << "X" 
+board[(player1_position.to_i)-1] << "X" 
+
+  puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  puts "-----------"
+  puts " #{board[3]} | #{board[4]} | #{board[5]} "
+  puts "-----------"
+  puts " #{board[6]} | #{board[7]} | #{board[8]} "
+puts "And player two will be 'O' so please choose your first position by typing a different number between 1 and 9. You may not choose #{player1_position}."
+player2_position = gets.chomp
+board[(player2_position.to_i)-1] << "O"
 
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"

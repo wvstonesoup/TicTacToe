@@ -11,6 +11,8 @@ attr_accessor :board, :player1, :player2
     	@player2 = "O"
  	end
 
+	board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
 
 	def empty_ttt_board(board)
 		puts " #{board[0]} | #{board[1]} | #{board[2]} "
@@ -19,7 +21,6 @@ attr_accessor :board, :player1, :player2
 		puts "-----------"
 		puts " #{board[6]} | #{board[7]} | #{board[8]} "
 	end
-	board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 	empty_ttt_board(board)
 end

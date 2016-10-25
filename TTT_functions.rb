@@ -1,26 +1,19 @@
-#require_relative "board_print.rb"
+class Board
 
-class GameBoard
+	attr_accessor :board
 
-attr_accessor :board, :player1, :player2
-
-
-  	def initialize(board, player1, player2)
-    	@board = board
-    	@player1 = "X"
-    	@player2 = "O"
- 	end
+	  	def initialize
+    		@board = board
+    	end
 
 	board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
+		def empty_ttt_board
+			" #{board[0]} | #{board[1]} | #{board[2]} "
+			"-----------"
+			" #{board[3]} | #{board[4]} | #{board[5]} "
+			"-----------"
+			" #{board[6]} | #{board[7]} | #{board[8]} "
+		end
 
-	def empty_ttt_board(board)
-		puts " #{board[0]} | #{board[1]} | #{board[2]} "
-		puts "-----------"
-		puts " #{board[3]} | #{board[4]} | #{board[5]} "
-		puts "-----------"
-		puts " #{board[6]} | #{board[7]} | #{board[8]} "
-	end
-
-	empty_ttt_board(board)
 end

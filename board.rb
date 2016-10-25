@@ -28,6 +28,17 @@ class Board
     def full_board?
     	gameboard.count("") == 0
     end
-    	
-    		  
+
+    def winner?(symbol)
+    	if gameboard[0] == symbol && gameboard[1] == symbol && gameboard[2] == symbol ||
+    	 gameboard[3] == symbol && gameboard[4] == symbol && gameboard[5] == symbol ||
+    	 gameboard[6] == symbol && gameboard[7] == symbol && gameboard[8] == symbol ||
+    	 gameboard[0] == symbol && gameboard[3] == symbol && gameboard[6] == symbol ||
+    	 gameboard[1] == symbol && gameboard[4] == symbol && gameboard[7] == symbol ||
+    	 gameboard[2] == symbol && gameboard[5] == symbol && gameboard[8] == symbol ||
+    	 gameboard[0] == symbol && gameboard[4] == symbol && gameboard[8] == symbol ||
+    	 gameboard[2] == symbol && gameboard[4] == symbol && gameboard[6] == symbol 
+    		true
+    	end
+    end   		  
 end

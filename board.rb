@@ -6,11 +6,11 @@ class Board
         end
     
     def update(position, symbol) #this updates the space on the board.
-            @gameboard[position.to_i] = symbol
+            @gameboard[position.to_i] = symbol.upcase
     end
 
     def valid_space?(position)
-        if @gameboard[position.to_i] == "x" || @gameboard[position.to_i] == "o"
+        if @gameboard[position.to_i] == "X" || @gameboard[position.to_i] == "O"
             false
         else
             true
@@ -31,14 +31,16 @@ class Board
 
     def winner?(symbol)
     	if gameboard[0] == symbol && gameboard[1] == symbol && gameboard[2] == symbol ||
-    	 gameboard[3] == symbol && gameboard[4] == symbol && gameboard[5] == symbol ||
-    	 gameboard[6] == symbol && gameboard[7] == symbol && gameboard[8] == symbol ||
-    	 gameboard[0] == symbol && gameboard[3] == symbol && gameboard[6] == symbol ||
-    	 gameboard[1] == symbol && gameboard[4] == symbol && gameboard[7] == symbol ||
-    	 gameboard[2] == symbol && gameboard[5] == symbol && gameboard[8] == symbol ||
-    	 gameboard[0] == symbol && gameboard[4] == symbol && gameboard[8] == symbol ||
-    	 gameboard[2] == symbol && gameboard[4] == symbol && gameboard[6] == symbol 
+    		gameboard[3] == symbol && gameboard[4] == symbol && gameboard[5] == symbol ||
+    	 	gameboard[6] == symbol && gameboard[7] == symbol && gameboard[8] == symbol ||
+    	 	gameboard[0] == symbol && gameboard[3] == symbol && gameboard[6] == symbol ||
+    	 	gameboard[1] == symbol && gameboard[4] == symbol && gameboard[7] == symbol ||
+    	 	gameboard[2] == symbol && gameboard[5] == symbol && gameboard[8] == symbol ||
+    		gameboard[0] == symbol && gameboard[4] == symbol && gameboard[8] == symbol ||
+    	 	gameboard[2] == symbol && gameboard[4] == symbol && gameboard[6] == symbol 
     		true
+    	else
+    		false
     	end
     end   		  
 end

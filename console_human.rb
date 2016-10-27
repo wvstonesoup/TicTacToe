@@ -6,12 +6,12 @@ class Human
 	end
 
 	def get_move(board)
-		puts "make a move."
+		puts "Player #{marker}, pick a position 1 through 9."
 		move = gets.chomp.to_i
 			if board[move] == ""		
 				move
 			else
-				puts "try again. make a VALID move."
+				puts "Try again, pick a VALID position."
 				get_move(board)
 			end
 	end

@@ -3,22 +3,19 @@ require_relative "board.rb"
 
 game = Game.new(Human.new("X"), Human.new("O"))
 
-game.print_board
+until game.game_over?
+	
+	game.switch_players! 
+    
+    game.print_board
+    
+    move = game.get_move
+    
+    game.make_move(move)
+    
+    game.print_board
 
-move = game.get_move #player 1
+end
 
-game.make_move(move) #update board, check for full board or winner
-
-game.print_board #prints current updated board 
-
-game.switch_players! 
-
-move = game.get_move #player 2
-
-game.make_move(move) #update board, check for full board or winner
-
-game.print_board #prints current updated board
-
-game.switch_players! 
-
+game.end_message
 

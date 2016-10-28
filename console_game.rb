@@ -10,24 +10,8 @@ class Game
 		@board = Board.new
 		@player_1 = player_1
 		@player_2 = player_2
-		@current_player = player_1
+		@current_player = player_2
 	end
-
-	#def play
-    #   loop do
-	   #      if board.winner?(current_player)
-	   #        puts "#{current_player} wins!"
-	   #        # print_board
-	   #        return
-	   #      elsif board.full_board?
-	   #        puts "It's a draw."
-	   #        # print_board
-	   #        return
-	   #      end
-    #     switch_players!
-    #   end
-    # end
-
 
 	def switch_players!
     	if @current_player == player_1
@@ -35,8 +19,20 @@ class Game
     	else 
     		@current_player = player_1
     	end
-    	puts "Okay #{@current_player.marker}, it's your turn."
 	end
+
+	def game_over?
+	    board.winner?(current_player.marker) ||  board.full_board?
+	end
+
+	def end_message
+        if board.winner?(current_player.marker)
+            puts "#{current_player.marker} wins!"
+        else
+            board.full_board?
+            puts  "Cat wins!"
+        end
+    end
 
 	def print_board
 		puts """
@@ -48,11 +44,11 @@ class Game
     	---+---+---
     	7 | 8 | 9 
     	Game Board:
-    	#{board.gameboard[1]}  | #{board.gameboard[2]}  | #{board.gameboard[3]} 
+    	#{board.gameboard[0]}  | #{board.gameboard[1]}  | #{board.gameboard[2]} 
     	-----------
-    	#{board.gameboard[4]}  | #{board.gameboard[5]}  | #{board.gameboard[6]} 
+    	#{board.gameboard[3]}  | #{board.gameboard[4]}  | #{board.gameboard[5]} 
     	-----------
-    	#{board.gameboard[7]}  | #{board.gameboard[8]}  | #{board.gameboard[9]} 
+    	#{board.gameboard[6]}  | #{board.gameboard[7]}  | #{board.gameboard[8]} 
     	"""
 
     end

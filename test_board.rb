@@ -35,7 +35,7 @@ class TestBoard < Minitest::Test
         assert_equal(true, board.valid_input?("5"))
         assert_equal(false, board.valid_input?("n"))
         assert_equal(true, board.valid_input?("5"))
-
+        assert_equal(false, board.valid_input?("0"))
 
     end
 

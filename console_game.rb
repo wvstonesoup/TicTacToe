@@ -1,17 +1,36 @@
 require_relative "board.rb"
 require_relative "console_human.rb"
+require_relative "random_ai.rb"
+require_relative "sequential_ai.rb"
 
 
 class Game
 
 	attr_accessor :board, :player_1, :player_2, :current_player
 
-	def initialize(player_1, player_2)
+	def initialize
 		@board = Board.new
-		@player_1 = player_1
-		@player_2 = player_2
+		@player_1 = Human.new("x")
+		@player_2 = select_player_2
 		@current_player = player_2
 	end
+
+    def select_player_2
+
+        puts """
+
+            Who would you like to play against?
+
+            Press   1 - Human
+                    2 - Random AI
+                    3 - Sequential AI
+                    
+            Then ENTER!
+        """
+        who = {1 => Human, 2 => RandomAi, 3 => SequentialAi}
+        choice = gets.chomp.to_i
+        player = who[choice].new("o")    
+    end
 
 	def switch_players!
     	if @current_player == player_1
@@ -36,25 +55,31 @@ class Game
 
 	def print_board
 		puts """
+
+
     	Let's get started!
+
     	Sample board with positions:
+
     	1 | 2 | 3
     	---+---+---
     	4 | 5 | 6 
     	---+---+---
     	7 | 8 | 9 
+
     	Game Board:
-    	#{board.gameboard[0]}  | #{board.gameboard[1]}  | #{board.gameboard[2]} 
+    	
+    	#{board.board[0]}  | #{board.board[1]}  | #{board.board[2]} 
     	-----------
-    	#{board.gameboard[3]}  | #{board.gameboard[4]}  | #{board.gameboard[5]} 
+    	#{board.board[3]}  | #{board.board[4]}  | #{board.board[5]} 
     	-----------
-    	#{board.gameboard[6]}  | #{board.gameboard[7]}  | #{board.gameboard[8]} 
+    	#{board.board[6]}  | #{board.board[7]}  | #{board.board[8]} 
     	"""
 
     end
 
     def get_move
-    	current_player.get_move(board.gameboard)
+    	current_player.get_move(board.board)
     end
 
     def make_move(move)

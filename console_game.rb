@@ -2,6 +2,7 @@ require_relative "board.rb"
 require_relative "console_human.rb"
 require_relative "random_ai.rb"
 require_relative "sequential_ai.rb"
+require_relative "unbeatable_ai.rb"
 
 
 class Game
@@ -24,11 +25,12 @@ class Game
             Press   1 - Human
                     2 - Random AI
                     3 - Sequential AI
+                    4 - Unbeatable AI
                     
             Then ENTER!
         """
-        who = {1 => Human, 2 => RandomAi, 3 => SequentialAi}
-        choice = gets.chomp.to_i
+        who = {1 => Human, 2 => RandomAi, 3 => SequentialAi, 4 => UnbeatableAI}
+        choice = gets.chomp.to_i 
         player = who[choice].new("o")    
     end
 

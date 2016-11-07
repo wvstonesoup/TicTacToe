@@ -13,6 +13,13 @@ class Board
         end
     end
 
+    def corner_space
+        corner = board[0, 2, 6, 8]
+    end
+
+    def edge_space
+        edge = board[1, 3, 5, 7]        
+    end
 
     def update(position, symbol) #this updates the space on the board.
             @board[position.to_i] = symbol

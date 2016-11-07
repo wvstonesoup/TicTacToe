@@ -6,8 +6,18 @@ class UnbeatableAI
 	end
 
 	def get_move(board)
-		board.index("")
+		if board[4] == ""
+			board[4] = "o"
+		# else
+			# corner == "o"
+		end
 	end
+
+
+
+	#1 strategy--if x first move takes a corner or an edge, o takes center (5). if x first move takes center, o should take a corner.
+
+
 
 
 end
